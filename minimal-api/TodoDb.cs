@@ -1,6 +1,11 @@
-﻿namespace minimal_api
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace minimal_api
 {
-    public class TodoDb
+    public class TodoDb : DbContext
     {
+        public TodoDb(DbContextOptions<TodoDb> options) : base(options) { }
+
+        public DbSet<Todo> Todos => Set<Todo>();
     }
 }
